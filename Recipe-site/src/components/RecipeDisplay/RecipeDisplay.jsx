@@ -47,11 +47,11 @@ const RecipeDisplay = ({ recipe }) => {
       {isExpanded && (
         <div className="full-recipe">
           <h3>מרכיבים:</h3>
-          <ul>
+          <div>
             {recipe.ingredients.map((ingredient, index) => (
-              <li key={index}>{ingredient}</li>
+              <div key={index}>{ingredient}</div>
             ))}
-          </ul>
+          </div>
           <h3>הוראות הכנה:</h3>
           <p>{recipe.instructions}</p>
         </div>

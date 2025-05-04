@@ -30,6 +30,11 @@
   flex: 1;
   padding: 20px;
   transition: transform 0.5s ease; /* אנימציה חלקה לשינוי מיקום */
+  display: flex;
+  justify-content: center; /* מרכז את התוכן רוחבית */
+  align-items: center; /* מרכז את התוכן גובה */
+  flex-direction: column;
+  height: 100vh; /* או גובה אחר בהתאם לצורך */
 }
 
 .toggle-button {
@@ -47,11 +52,13 @@
 }
 
 .full-recipe {
+  flex: 1;
   margin-top: 20px;
   max-height: 300px; /* גובה מקסימלי למתכון המלא */
   overflow-y: auto; /* אפשרות לגלילה */
   padding: 10px;
   border-top: 1px solid #ccc; /* גבול עליון */
+  text-align: right; /* מיישר את הטקסט לימין */
 }
 
 .recipe-details.hidden {
