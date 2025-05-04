@@ -1,0 +1,78 @@
+.recipe-display {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden; /* מונע מהתמונה לחרוג מהקונטיינר */
+  overflow-y: auto;
+}
+
+.image-container {
+  flex: 1;
+  max-width: 50%; /* מונע מהקונטיינר לגדול מעבר ל-50% */
+  overflow: hidden; /* מסתיר את החלקים החורגים */
+  position: relative; /* כדי שהזום לא יחרוג מהקונטיינר */
+}
+
+.recipe-image {
+  width: 100%; /* תופס את רוחב הקונטיינר */
+  height: auto; /* שומר על פרופורציות */
+  object-fit: cover; /* שומר על פרופורציות מבלי לחתוך את התמונה */
+  transition: transform 0.3s ease; /* אפקט מעבר חלק */
+  max-width: 100%; /* מונע מהתמונה לחרוג מגבולות הקונטיינר */
+}
+
+.recipe-image.expanded {
+  transform: scale(1.1); /* זום על התמונה */
+  max-width: 100%; /* מונע מהתמונה לחרוג מגבולות הקונטיינר */
+}
+
+.recipe-details {
+  flex: 1;
+  padding: 20px;
+  transition: transform 0.5s ease; /* אנימציה חלקה לשינוי מיקום */
+}
+
+.toggle-button {
+  margin-top: 10px;
+  background-color: white;
+  border: none; /* מסיר את המסגרת */
+  background: transparent; /* מסיר את הרקע */
+  cursor: pointer; /* מציין שזה כפתור */
+  outline: none; /* מסיר את ההדגשה */
+}
+.toggle-button:hover,
+.toggle-button:focus {
+  outline: none; /* מסיר את ההדגשה כאשר עובר מעל או לוחצים */
+  box-shadow: none; /* מסיר צל אם יש */
+}
+
+.full-recipe {
+  margin-top: 20px;
+  max-height: 300px; /* גובה מקסימלי למתכון המלא */
+  overflow-y: auto; /* אפשרות לגלילה */
+  padding: 10px;
+  border-top: 1px solid #ccc; /* גבול עליון */
+}
+
+.recipe-details.hidden {
+  display: none; /* מסתיר את פרטי המתכון כאשר מתכון מלא מוצג */
+}
+
+.image-container,
+.recipe-image {
+  box-sizing: border-box; /* כולל גבולות וריפוד בחישוב הרוחב */
+}
+
+.bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
