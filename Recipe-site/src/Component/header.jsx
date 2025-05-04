@@ -8,8 +8,17 @@ import IconButton from '@mui/material/IconButton'; // שימוש ב-IconButton
 
 const Header = () => {
     return (
-        <AppBar position="fixed" sx={{ backgroundColor: '#c2b2a0' }}>
-            <Toolbar sx={{ display: 'flex', justifyContent: 'center' }}><IconButton color="inherit" sx={{ marginLeft: 2 }}>
+        <AppBar 
+            position="fixed" 
+            sx={{ 
+                backgroundColor: '#c2b2a0', 
+                marginTop: 0, 
+                marginBottom: 0, 
+                top: 0 
+            }}
+        >
+            <Toolbar sx={{ display: 'flex', justifyContent: 'center' }}>
+                <IconButton color="inherit" sx={{ marginLeft: 2 }}>
                     <SearchIcon /> {/* זכוכית מגדלת */}
                 </IconButton>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -20,6 +29,7 @@ const Header = () => {
                             sx={{ 
                                 marginLeft: 2, 
                                 textDecoration: 'none', 
+                                color: 'white', // שינוי צבע הטקסט ללבן
                                 '&:hover': { 
                                     textDecoration: 'underline' 
                                 } 
