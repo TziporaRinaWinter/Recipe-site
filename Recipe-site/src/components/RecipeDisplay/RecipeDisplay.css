@@ -1,8 +1,8 @@
 .recipe-display {
   display: flex;
   flex-direction: row;
-  width: 100vw; /* רוחב מלא של המסך */
-  height: 100vh; /* גובה מלא של המסך */
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -31,9 +31,9 @@
   height: 100vh;
   width: 50vw;
   padding: 40px;
-  background-color: #f5f5f5;
+  /* background-color: #ffffff; */
   overflow-y: auto;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 .recipe-details {
@@ -49,7 +49,6 @@
   padding: 40px 0;
   text-align: right;
   direction: rtl;
-  background-color: white;
   min-height: 100vh;
   box-sizing: border-box;
 }

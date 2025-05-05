@@ -7,7 +7,10 @@ function App() {
     image: "./src/assets/לחם הבית.jpg",
     title: "שם המתכון",
     preparationTime: "30 דקות",
-    ingredients: ["מרכיב 1", "מרכיב 2", "מרכיב 3"],
+    category: "מאפה",
+    rank: "קל",
+    remark:
+      "ננחגמלגנכ כה כג המנהכחלגנ  ינדנ הגלנכמד  וידחכנג  נכגנכ גנלד ה דכלה חדעדנהנחנהחלגד החנלדכנדהד",
     instructions: "הוראות הכנה...",
   };
 

@@ -1,5 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import { Stack, Typography } from "@mui/material";
+
 import "./RecipeDisplay.css";
 
 const RecipeDisplay = ({ recipe }) => {
@@ -47,20 +52,31 @@ const RecipeDisplay = ({ recipe }) => {
 
       <div className="recipe-content" ref={contentRef}>
         <div className="recipe-details">
-          <h2>{recipe.title}</h2>
-          <p>זמן הכנה: {recipe.preparationTime}</p>
+          <h1>{recipe.title}</h1>
+          <br />
+          <Stack direction="row" spacing={3} alignItems="center">
+            <Stack direction="row" spacing={1} alignItems="center">
+              <Typography variant="body1">{recipe.category}</Typography>
+              <RestaurantIcon />
+            </Stack>
+            <Stack direction="row" spacing={1} alignItems="center">
+              <Typography variant="body1">{recipe.rank}</Typography>
+              <EmojiEventsIcon />
+            </Stack>
+            <Stack direction="row" spacing={1} alignItems="center">
+              <Typography variant="body1">{recipe.preparationTime}</Typography>
+              <AccessTimeIcon />
+            </Stack>
+          </Stack>
+          <br />
+          <h2>{recipe.remark}</h2>
+
           <button onClick={handleExpandClick} className="toggle-button">
             <KeyboardDoubleArrowDownIcon className="bounce" />
           </button>
         </div>
 
         <div id="full-recipe" className="full-recipe-section">
-          <h3>מרכיבים:</h3>
-          <ul>
-            {recipe.ingredients.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
           <h3>הוראות הכנה:</h3>
           <p>{recipe.instructions}</p>
         </div>
