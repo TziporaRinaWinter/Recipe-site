@@ -1,29 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import "./RecipeDisplay.css";
 
 const RecipeDisplay = ({ recipe }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
-
-  const handleScroll = () => {
-    const currentScrollPosition = window.scrollY;
-    setScrollPosition(currentScrollPosition);
-
-    // אם הגלילה למטה, נציג את המתכון המלא
-    if (currentScrollPosition > 300) {
-      setIsExpanded(true);
-    } else {
-      setIsExpanded(false);
-    }
-  };
+  const [isZoomed, setIsZoomed] = useState(false);
+  const contentRef = useRef(null);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    const contentEl = contentRef.current;
+
+    const handleScroll = () => {
+      if (contentEl.scrollTop > 100) {
+        setIsZoomed(true);
+      } else {
+        setIsZoomed(false);
+      }
+    };
+
+    if (contentEl) {
+      contentEl.addEventListener("scroll", handleScroll);
+    }
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (contentEl) {
+        contentEl.removeEventListener("scroll", handleScroll);
+      }
     };
   }, []);
+
+  const handleExpandClick = () => {
+    const element = document.getElementById("full-recipe");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="recipe-display">
@@ -31,31 +41,30 @@ const RecipeDisplay = ({ recipe }) => {
         <img
           src={recipe.image}
           alt={recipe.title}
-          className={`recipe-image ${isExpanded ? "expanded" : ""}`}
+          className={`recipe-image ${isZoomed ? "zoomed" : ""}`}
         />
       </div>
-      <div className={`recipe-details ${isExpanded ? "hidden" : ""}`}>
-        <h2>{recipe.title}</h2>
-        <p>זמן הכנה: {recipe.preparationTime}</p>
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="toggle-button"
-        >
-          <KeyboardDoubleArrowDownIcon className="bounce" />
-        </button>
-      </div>
-      {isExpanded && (
-        <div className="full-recipe">
+
+      <div className="recipe-content" ref={contentRef}>
+        <div className="recipe-details">
+          <h2>{recipe.title}</h2>
+          <p>זמן הכנה: {recipe.preparationTime}</p>
+          <button onClick={handleExpandClick} className="toggle-button">
+            <KeyboardDoubleArrowDownIcon className="bounce" />
+          </button>
+        </div>
+
+        <div id="full-recipe" className="full-recipe-section">
           <h3>מרכיבים:</h3>
-          <div>
-            {recipe.ingredients.map((ingredient, index) => (
-              <div key={index}>{ingredient}</div>
+          <ul>
+            {recipe.ingredients.map((item, index) => (
+              <li key={index}>{item}</li>
             ))}
-          </div>
+          </ul>
           <h3>הוראות הכנה:</h3>
           <p>{recipe.instructions}</p>
         </div>
-      )}
+      </div>
     </div>
   );
 };
