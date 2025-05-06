@@ -1,9 +1,10 @@
 import { useState } from "react";
 import "./App.css";
-import RecipeDisplay from "./components/RecipeDisplay/RecipeDisplay.jsx";
+import RecipeCardList from "./components/RecipeListDisplay/RecipeCardList.jsx";
 
 function App() {
   const recipe = {
+    id: "1",
     image: "./src/assets/לחם הבית.jpg",
     title: "שם המתכון",
     preparationTime: "30 דקות",
@@ -16,7 +17,7 @@ function App() {
 
   return (
     <>
-      <RecipeDisplay recipe={recipe} />
+      <RecipeCardList recipes={[recipe, recipe, recipe, recipe]} />
     </>
   );
 }
