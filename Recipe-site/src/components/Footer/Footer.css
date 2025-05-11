@@ -1,0 +1,25 @@
+.footer {
+    background-color: #9b7b3d; /* צבע רקע לדוגמה */
+    color: white; /* צבע טקסט */
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-links a {
+    color: white; /* צבע קישורים */
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* קו תחתון על hover */
+}
