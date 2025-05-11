@@ -1,15 +1,44 @@
 .card-list-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-.card-list-wrapper {
-  position: relative;
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
   display: flex;
+  flex-direction: column;
+}
+
+.recipe-background {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
   justify-content: center;
+}
+
+.recipe-header-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipe-header-title {
+  color: white;
+  z-index: 2;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+.content-wrapper {
+  background-color: white;
+  padding: 2rem 1rem;
+  z-index: 2;
 }
 
 .back-button {
