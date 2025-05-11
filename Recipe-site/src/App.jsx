@@ -4,7 +4,9 @@ import CategoryRecipesPage from "./components/RecipeListDisplay/CategoryRecipesP
 function App() {
   return (
     <>
+      <Header />
       <CategoryRecipesPage></CategoryRecipesPage>
+      <Footer />
     </>
   );
 }
