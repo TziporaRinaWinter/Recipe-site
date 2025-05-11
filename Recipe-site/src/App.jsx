@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import RecipeCardList from "./components/RecipeListDisplay/RecipeCardList.jsx";
 import Recipe from "./models/Recipe.js";
+import Footer from "./components/Footer/Footer.jsx";
+import Header from "./components/Header/header.jsx";
 
 function App() {
   const recipe = new Recipe({
@@ -18,7 +20,9 @@ function App() {
 
   return (
     <>
+      <Header />
       <RecipeCardList recipes={[recipe, recipe, recipe, recipe]} />
+      <Footer/>
     </>
   );
 }
