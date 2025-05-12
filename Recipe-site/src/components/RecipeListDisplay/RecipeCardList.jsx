@@ -5,7 +5,7 @@ import RecipeCardListContent from "./RecipeCardListContent";
 import RecipeDisplay from "../RecipeDisplay/RecipeDisplay";
 import "./RecipeCardList.css";
 
-function RecipeCardList({ recipes, category, imageSrc }) {
+function RecipeCardList({ recipes, category, categoryEn, imageSrc }) {
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   const handleSelect = (recipe) => {
@@ -32,9 +32,14 @@ function RecipeCardList({ recipes, category, imageSrc }) {
             style={{ backgroundImage: `url("${imageSrc}")` }}
           >
             <div className="recipe-header-overlay">
-              <Typography variant="h3" className="recipe-header-title">
-                {category}
-              </Typography>
+              <div className="recipe-header-text">
+                <div variant="h3" className="recipe-header-title">
+                  {category}
+                </div>
+                <div variant="h2" className="recipe-header-subtitle">
+                  {"categoryEn"}
+                </div>
+              </div>
             </div>
           </div>
           <div className="content-wrapper">
