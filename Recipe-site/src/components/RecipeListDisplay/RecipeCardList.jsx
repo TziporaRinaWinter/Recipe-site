@@ -3,9 +3,10 @@ import { Box, Typography } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import RecipeCardListContent from "./RecipeCardListContent";
 import RecipeDisplay from "../RecipeDisplay/RecipeDisplay";
+import { getCategoryById } from "../../utils/categoryUtils";
 import "./RecipeCardList.css";
 
-function RecipeCardList({ recipes, category, categoryEn, imageSrc }) {
+function RecipeCardList({ recipes, categoryID }) {
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   const handleSelect = (recipe) => {
@@ -15,7 +16,8 @@ function RecipeCardList({ recipes, category, categoryEn, imageSrc }) {
   const handleBack = () => {
     setSelectedRecipe(null);
   };
-
+  const category = getCategoryById(categoryID);
+  const imageSrc = getCategoryById(categoryID).imageSrc;
   return (
     <Box className="card-list-wrapper">
       {selectedRecipe ? (
@@ -34,10 +36,10 @@ function RecipeCardList({ recipes, category, categoryEn, imageSrc }) {
             <div className="recipe-header-overlay">
               <div className="recipe-header-text">
                 <div variant="h3" className="recipe-header-title">
-                  {category}
+                  {category.names["he"]}
                 </div>
                 <div variant="h2" className="recipe-header-subtitle">
-                  {"categoryEn"}
+                  {category.names["en"]}
                 </div>
               </div>
             </div>
