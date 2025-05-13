@@ -5,7 +5,7 @@ import RecipeCardList from "./RecipeCardList";
 
 function CategoryRecipesPage() {
   //   const { categoryName } = useParams(); //  /recipes/:categoryName
-  const categoryName = "מאפים";
+  const categoryID = "pastrys";
 
   //   const recipesInCategory = allRecipes.filter(
   //     (r) => r.category === categoryName
@@ -26,19 +26,11 @@ function CategoryRecipesPage() {
     instructions: "הוראות הכנה...",
   };
 
-  const categoryImages = {
-    פסטות: "/images/pasta.jpg",
-    סלטים: "/images/salad.jpg",
-    מרקים: "/images/soups.jpg",
-    מאפים: "./src/assets/לחם הבית.jpg",
-  };
-
   return (
     <div>
       <RecipeCardList
         recipes={[recipe, recipe, recipe, recipe, recipe]}
-        category={categoryName}
-        imageSrc={categoryImages[categoryName]}
+        categoryID={categoryID}
       />
     </div>
   );
