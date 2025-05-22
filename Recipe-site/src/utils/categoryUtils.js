@@ -63,12 +63,15 @@ export function getCategoriesWithSubcategories(lang = "he") {
     .filter(
       (cat) => Array.isArray(cat.subcategories) && cat.subcategories.length > 0
     )
-    .map((cat) => ({
-      id: cat.id,
-      name: cat.names[lang],
-      subcategories: cat.subcategories.map((sub) => ({
-        id: sub.id,
-        name: sub.names[lang],
-      })),
-    }));
+    .reduce((acc, cat) => {
+      acc[cat.id] = {
+        id: cat.id,
+        name: cat.names[lang],
+        subcategories: cat.subcategories.map((sub) => ({
+          id: sub.id,
+          name: sub.names[lang],
+        })),
+      };
+      return acc;
+    }, {});
 }
