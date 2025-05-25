@@ -46,6 +46,7 @@ const RecipeDisplay = ({ recipe }) => {
         <img
           src={recipe.image}
           alt={recipe.title}
+          onContextMenu={(e) => e.preventDefault()}
           className={`recipe-image ${isZoomed ? "zoomed" : ""}`}
         />
       </div>
