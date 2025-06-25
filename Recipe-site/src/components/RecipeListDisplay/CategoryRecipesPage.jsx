@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RecipeCardList from "./RecipeCardList";
 // import allRecipes from "../data/recipes"; // כל המתכונים (לדוגמה)
 // import { useParams } from "react-router-dom"; // אם יש קטגוריות ב-URL
+import SearchBox from "../SearchBox/SearchBox"
 
 function CategoryRecipesPage() {
   //   const { categoryName } = useParams(); //  /recipes/:categoryName
@@ -27,7 +28,7 @@ function CategoryRecipesPage() {
   };
 
   return (
-    <div>
+    <div>      
       <RecipeCardList
         recipes={[recipe, recipe, recipe, recipe, recipe]}
         categoryID={categoryID}

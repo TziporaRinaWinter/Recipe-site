@@ -9,35 +9,34 @@ const categories = [
       {
         id: "shabbat",
         names: { he: "שבת", en: "Shabbat" },
-        imageSrc: "./src/assets/לחם הבית.jpg",
+        imageSrc: "src/image/החלות המדהימות של שבת קודש..jpg",
       },
       {
         id: "rosh_hashana",
         names: { he: "ראש השנה", en: "Rosh Hashanah" },
-        imageSrc: "./src/assets/לחם הבית.jpg",
+        imageSrc: "src/image/פאי תפוח בדבש.jpg",
       },
       {
         id: "hanukkah",
         names: { he: "חנוכה", en: "Hanukkah" },
-        imageSrc: "./src/assets/לחם הבית.jpg",
+        imageSrc: "src/image/הסופגניות החלביות של אימא 1.jpg",
       },
       {
         id: "purim",
         names: { he: "פורים", en: "Purim" },
-        imageSrc: "./src/assets/לחם הבית.jpg",
+        imageSrc: "src/image/משלוח מנות מחופש 1.jpg",
       },
       {
         id: "pesach",
         names: { he: "פסח", en: "Passover" },
-        imageSrc: "./src/assets/לחם הבית.jpg",
+        imageSrc: "src/image/מעדן אגוזים וסלרי מפתיע למצות 1.jpg",
       },
       {
         id: "shavuot",
         names: { he: "שבועות", en: "Shavuot" },
-        imageSrc: "./src/assets/לחם הבית.jpg",
+        imageSrc: "src/image/עוגת גבינה אמיתית.jpg",
       },
-    ],
-    imageSrc: "./src/assets/לחם הבית.jpg",
+    ]
   },
   {
     id: "other",

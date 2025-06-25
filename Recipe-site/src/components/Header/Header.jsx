@@ -8,6 +8,8 @@ import IconButton from '@mui/material/IconButton';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { getCategoryById } from '../../utils/categoryUtils'; // ייבוא הפונקציה מהעמוד UTIL
+
 
 const Header = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -101,7 +103,10 @@ const Header = () => {
                                         onClose={handleClose}
                                     >
                                         {menuItems[text].map((item, itemIndex) => (
-                                            <MenuItem key={itemIndex} onClick={handleClose} sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                                            <MenuItem key={itemIndex} onClick={() => {
+                                                handleClose();
+                                                getCategoryById("shabba"); // קריאה לפונקציה עם ה-ID גם כאן אם יש תתי קטגוריות
+                                            }} sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
                                                 {item}
                                             </MenuItem>
                                         ))}
